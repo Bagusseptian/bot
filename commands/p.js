@@ -13,7 +13,7 @@ const { play } = require("../system/music.js");
 module.exports = {
   name: "p",
   description: "Memutar musik",
-  async execute(client, message, args) {
+  execute: async (client, message, args) => {
     let embed = new MessageEmbed()
 .setColor(COLOR);
 
@@ -21,8 +21,9 @@ module.exports = {
     //FIRST OF ALL WE WILL ADD ERROR MESSAGE AND PERMISSION MESSSAGE
     if (!args.length) {
       //IF AUTHOR DIDENT GIVE URL OR NAME
-      embed.setAuthor("WRONG SYNTAX : Type `play <URL> or text`")
-      return message.channel.send(embed);
+      embed.setAuthor("SALAH NULIS BLOK: __JANGAN LUPA TULIS JUDUL LAGU ATAU LINK MUSIK__ ")
+     .setFooter('© Created by LarSpeed & @Muhammadbagus')
+ return message.channel.send(embed);
     }
 
     const { channel } = message.member.voice;
@@ -30,8 +31,8 @@ module.exports = {
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
       embed.setAuthor("MASUK VOICE DULU BLOKK!")
-     
-    .setFooter('© Created LarSpeed', client.user.displayAvatarURL)
+     .setFooter('© Created by LarSpeed & @Muhammadbagus')
+    
       return message.channel.send(embed);
     }
 
@@ -44,7 +45,8 @@ module.exports = {
 
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
       embed.setAuthor("ERROR MAS GK BISA DI PUTER MUSIK NYA")
-      return message.channel.send(embed);
+      .setFooter('© Created by LarSpeed & @Muhammadbagus')
+return message.channel.send(embed);
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
@@ -113,11 +115,11 @@ module.exports = {
       
     
       serverQueue.songs.push(song);
-      embed.setAuthor("Added New Song To Queue", client.user.displayAvatarURL())
+      embed.setAuthor("Menambah kan lagu ke Anterian Yak!", client.user.displayAvatarURL())
       embed.setDescription(`**[${song.title}](${song.url})**`)
       embed.setThumbnail(song.thumbnail)
-      .setFooter("Likes - " + songData.videoDetails.likes + ", Dislikes - " +  songData.videoDetails.dislikes)
-      
+      .setFooter("Likes - " + songData.videoDetails.likes + ", Dislikes - " +  songData.videoDetails.dislikes+
+      '© Created by LarSpeed & @Muhammadbagus')
       return serverQueue.textChannel
         .send(embed)
         .catch(console.error);
@@ -139,7 +141,7 @@ module.exports = {
         return message.channel
           .send({
             embed: {
-              description: `😭 | Could not join the channel: ${error}`,
+              description: `😭 | GAK BISA JOIN KE CHANNEL: ${error}`,
               color: "#ff2050"
             }
           })

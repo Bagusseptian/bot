@@ -13,7 +13,7 @@ module.exports = {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
       embed.setAuthor("MASUK VOICE DULU BLOKK!")
      
-    .setFooter('© Created LarSpeed', client.user.displayAvatarURL)
+    .setFooter('© Created LarSpeed & @Muhammadbagus', client.user.displayAvatarURL)
       return message.channel.send(embed);
       
       
@@ -23,17 +23,19 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      embed.setAuthor("There is nothing playing that i could loop")
-      return message.channel.send(embed);
+      embed.setAuthor("Gak ada Loop nyaaa!!")
+    .setFooter('© Created LarSpeed & @Muhammadbagus', client.user.displayAvatarURL)
+  return message.channel.send(embed);
     }
     
     //OOOOF
     serverQueue.loop = !serverQueue.loop
     
     
-    embed.setDescription(`Loop is now **${serverQueue.loop ? "Enabled" : "Disabled"}**`)
+    embed.setDescription(`Loop is now **${serverQueue.loop ? "IYO" : "ORA"}**`)
     embed.setThumbnail(client.user.displayAvatarURL())
-    message.channel.send(embed)
+   .setFooter('© Created by LarSpeed & @Muhammadbagus')
+ message.channel.send(embed)
     
     
     

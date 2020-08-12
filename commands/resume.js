@@ -14,20 +14,23 @@ module.exports = {
       
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      embed.setAuthor("YOU NEED TO BE IN VOICE CHANNEL :/")
-      return message.channel.send(embed);
+      embed.setAuthor("MASUK VOICE DULU BLOKK!")
+     .setFooter('© Created by LarSpeed & @Muhammadbagus')
+ return message.channel.send(embed);
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
  if(serverQueue && !serverQueue.playing) {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume()
-  embed.setAuthor("✅ | Resumed the Paused Song")
+  embed.setAuthor("✅ | LANJUT TERUSSS")
    embed.setThumbnail(client.user.displayAvatarURL())
-  return message.channel.send(embed)
+  .setFooter('© Created by LarSpeed')
+return message.channel.send(embed)
  }
-    embed.setDescription("There is nothing paused that i can resume")
-    message.channel.send(embed)
+    embed.setDescription("GAK ADA YANG JEDA BLOK!")
+ .setFooter('© Created by LarSpeed & @Muhammadbagus')
+ message.channel.send(embed)
     
   }
 }

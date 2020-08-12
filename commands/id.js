@@ -7,8 +7,7 @@ module.exports = {
     let embed = new MessageEmbed()
     .setColor(`RANDOM`)
     .setDescription(`Your Discord  ID: ${message.author.id}`)
-   
-    .setFooter('© Created LarSpeed', client.user.displayAvatarURL)
+    .setFooter('© Created LarSpeed & @Muhammadbagus', client.user.displayAvatarURL)
     message.channel.send(embed)
     }
 }

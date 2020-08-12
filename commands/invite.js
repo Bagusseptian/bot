@@ -7,9 +7,9 @@ module.exports = {
   
   let embed = new MessageEmbed()
   .setTitle("Invite Me or Die")
-  .setColor("RED")
+  .setColor("#00BFFF")
   .setDescription(`[CLICK ME](${inviteURL}) ATAU **TEWAS**`)
-  .setFooter('© Created LarSpeed', client.user.displayAvatarURL)
+  .setFooter('© Created LarSpeed & @Muhammadbagus', client.user.displayAvatarURL)
     
     return message.channel.send(embed)
   

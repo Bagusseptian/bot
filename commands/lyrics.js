@@ -5,11 +5,11 @@ const { COLOR } = require("../config.json");
 module.exports = {
   name: "lyrics",
   description: "Cari lirik lagu buat lu karaoke",
-  async execute (client, message, args) {
+  execute: async (client, message, args) => {
     let embed = new MessageEmbed()
-    .setDescription("Looking For Lyrics ...")
-    .setColor("YELLOW")
-    
+    .setDescription("Nyanyi nya Yang bener YAK!...")
+    .setColor(COLOR)
+    .setFooter('© Created LarSpeed & @Muhammadbagus', client.user.displayAvatarURL)
     if(!args.length) {
       return message.channel.send("TULIS JUDUL LAGU COK")
     }
@@ -32,10 +32,12 @@ module.exports = {
         // lyrics.length > 2048
         const firstLyricsEmbed = new MessageEmbed()
           .setColor(COLOR)
-          .setDescription(lyrics.slice(0, 2048));
+          .setDescription(lyrics.slice(0, 2048))
+       .setFooter('© Created by LarSpeed & @Muhammadbagus');
         const secondLyricsEmbed = new MessageEmbed()
           .setColor(COLOR)
-          .setDescription(lyrics.slice(2048, lyrics.length));
+          .setDescription(lyrics.slice(2048, lyrics.length))
+       .setFooter('© Created by LarSpeed & @Muhammadbagus');
         msg.edit(firstLyricsEmbed);
         message.channel.send(secondLyricsEmbed);
         return;
