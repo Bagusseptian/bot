@@ -19,35 +19,41 @@ module.exports = {
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
       embed.setAuthor("Masuk Voice Dulu BLOKK!")
-      return message.channel.send(embed);
+    .setFooter('© Created by LarSpeed & @Muhammadbagus')
+  return message.channel.send(embed);
     }
     
      const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      embed.setAuthor("Bot is not playing anything")
-      return message.channel.send(embed);
+      embed.setAuthor("SETEL LAGU NYA DULU BEP")
+     .setFooter('© Created by LarSpeed & @Muhammadbagus')
+ return message.channel.send(embed);
     }
     
     if(!args[0]) {
-      embed.setAuthor(`The Current Volume is ${serverQueue.volume}`)
-      return message.channel.send(embed)
+      embed.setAuthor(`MENGGANTI VOLUME ${serverQueue.volume}`)
+    .setFooter('© Created by LarSpeed & @Muhammadbagus')
+  return message.channel.send(embed)
     }
     
     if(isNaN(args[0])) {
-      embed.setAuthor("Please Use Numerical Values Only")
-      return message.channel.send(embed)
+      embed.setAuthor("TULIS NOMOR NYA")
+  .setFooter('© Created by LarSpeed & @Muhammadbagus')
+   return message.channel.send(embed)
     }
     
     if(args[0] > 200) {
       embed.setAuthor("You will die if you reach the limit of 200 :)")
-      return message.channel.send(embed)
+   .setFooter('© Created by LarSpeed & @Muhammadbagus')
+  return message.channel.send(embed)
     }
     
     serverQueue.volume = args[0]
     serverQueue.connection.dispatcher.setVolumeLogarithmic(args[0] / 100)
     embed.setDescription(`Seted Volume to ${args[0]}`)
     embed.setThumbnail(client.user.displayAvatarURL())
+    .setFooter('© Created by LarSpeed & @Muhammadbagus')
     message.channel.send(embed)
     
   }

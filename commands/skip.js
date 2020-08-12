@@ -21,13 +21,15 @@ let embed = new MessageEmbed()
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
       embed.setAuthor("Masuk Voice Dulu BLOKK!")
-      return message.channel.send(embed);
+      .setFooter('© Created by LarSpeed & @Muhammadbagus')
+return message.channel.send(embed);
     }
     const serverQueue = message.client.queue.get(message.guild.id);
 const vote = message.client.vote.get(message.guild.id)
     if (!serverQueue) {
-      embed.setAuthor("There is nothing playing that i could skip")
-      return message.channel.send(embed);
+      embed.setAuthor("GAK ADA LAGU NYA BLOK APA YANG DI SKIP")
+     
+ return message.channel.send(embed);
     }
     
     const vcvote = Math.floor(message.guild.me.voice.channel.members.size / 2)
@@ -38,18 +40,20 @@ const vote = message.client.vote.get(message.guild.id)
          serverQueue.connection.dispatcher.end();
     embed.setDescription("VOTE - SKIP |SKIP AE TERUS")
     embed.setThumbnail(client.user.displayAvatarURL())
-    return message.channel.send(embed);
+   .setFooter('© Created by LarSpeed & @Muhammadbagus')
+ return message.channel.send(embed);
        }
        
        if(vote.voters.includes(message.author.id)) {
-         return message.channel.send("You already voted for this song")
+         return message.channel.send("YANG LAIN SURUH SKIP JUGA!(kecuali **ADMIN**")
        }
        
        if(vcvote === 2) {
           serverQueue.connection.dispatcher.end();
     embed.setDescription("✔ | GANTIAN BLOK!.LAGU LU NGANTUK")
     embed.setThumbnail(client.user.displayAvatarURL())
-    return message.channel.send(embed);
+ .setFooter('© Created by LarSpeed & @Muhammadbagus')
+ return message.channel.send(embed);
        }
        
        
@@ -66,6 +70,7 @@ vote.vote++
     serverQueue.connection.dispatcher.end();
     embed.setDescription("✔ | GANTIAN BLOK!. LAGU LU NGANTUK")
     embed.setThumbnail(client.user.displayAvatarURL())
-    message.channel.send(embed);
+   .setFooter('© Created LarSpeed & @Muhammadbagus', client.user.displayAvatarURL)
+ message.channel.send(embed);
   }
 };

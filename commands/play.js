@@ -1,3 +1,4 @@
+
 const { MessageEmbed } = require("discord.js")
 
 const ms = require("ms")
@@ -11,7 +12,7 @@ const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
 const { play } = require("../system/music.js");
 module.exports = {
   name: "play",
-  description: "Memutar lagu",
+  description: "Memutar musik",
   async execute(client, message, args) {
     let embed = new MessageEmbed()
 .setColor(COLOR);
@@ -20,8 +21,9 @@ module.exports = {
     //FIRST OF ALL WE WILL ADD ERROR MESSAGE AND PERMISSION MESSSAGE
     if (!args.length) {
       //IF AUTHOR DIDENT GIVE URL OR NAME
-      embed.setAuthor("WRONG SYNTAX : Type `play <URL> or text`")
-      return message.channel.send(embed);
+      embed.setAuthor("SALAH KETIK LUL: TULIS JUDUL LAGU NYA PAOK")
+     .setFooter('© Created by LarSpeed & @Muhammadbagus')
+ return message.channel.send(embed);
     }
 
     const { channel } = message.member.voice;
@@ -29,6 +31,8 @@ module.exports = {
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
       embed.setAuthor("MASUK VOICE DULU BLOKK!")
+     .setFooter('© Created by LarSpeed & @Muhammadbagus')
+   
       return message.channel.send(embed);
     }
 
@@ -40,8 +44,9 @@ module.exports = {
     const urlcheck = videoPattern.test(args[0]);
 
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
-      embed.setAuthor("I am Unable To Play Playlist for now")
-      return message.channel.send(embed);
+      embed.setAuthor("ERROR MAS GK BISA DI PUTER MUSIK NYA")
+          .setFooter('© Created by LarSpeed & @Muhammadbagus')
+return message.channel.send(embed);
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
@@ -77,7 +82,7 @@ module.exports = {
       } catch (error) {
         if (message.include === "copyright") {
           return message
-            .reply("THERE IS COPYRIGHT CONTENT IN VIDEO -_-")
+            .reply("KOPI KANAN BOSSS -_-")
             .catch(console.error);
         } else {
           console.error(error);
@@ -110,11 +115,11 @@ module.exports = {
       
     
       serverQueue.songs.push(song);
-      embed.setAuthor("Added New Song To Queue", client.user.displayAvatarURL())
+      embed.setAuthor("MENAMBAH KAN LAGU KE ANTRIAN.SABAR YAK", client.user.displayAvatarURL())
       embed.setDescription(`**[${song.title}](${song.url})**`)
       embed.setThumbnail(song.thumbnail)
-      .setFooter("Likes - " + songData.videoDetails.likes + ", Dislikes - " +  songData.videoDetails.dislikes)
-      
+      .setFooter("Likes - " + songData.videoDetails.likes + ", Dislikes - " +  songData.videoDetails.dislikes+
+      '© Created by LarSpeed & @Muhammadbagus')
       return serverQueue.textChannel
         .send(embed)
         .catch(console.error);

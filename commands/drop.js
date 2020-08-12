@@ -8,32 +8,36 @@ module.exports = {
     const { channel } = message.member.voice;
     if (!channel) {
       embed.setAuthor("MASUK VOICE DULU BLOKK!")
-      
-    .setFooter('© Created LarSpeed', client.user.displayAvatarURL)
+      .setFooter('© Created by LarSpeed & @Muhammadbagus')
+    
       return message.channe.send(embed);
     }
 
     const serverQueue = client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      embed.setAuthor("The Queue is empty");
-      return message.channel.send(embed);
+      embed.setAuthor("Anterian Kosong Blok")
+     .setFooter('© Created by LarSpeed & @Muhammadbagus')
+return message.channel.send(embed);
     }
     
      if(isNaN(args[0])) {
-      embed.setAuthor("Please Use Numerical Values Only")
-      return message.channel.send(embed)
+      embed.setAuthor("Kasih Nomor Antrian")
+   .setFooter('© Created by LarSpeed')
+  return message.channel.send(embed)
     }
    
     if(args[0] > serverQueue.songs.length) {
-      embed.setAuthor("Unable to find this song")
-      return message.channel.send(embed)
+      embed.setAuthor("LAGU nya Gk Ketemu")
+      .setFooter('© Created by LarSpeed & @Muhammadbagus')
+return message.channel.send(embed)
     }
     
     
     serverQueue.songs.splice(args[0] - 1, 1)
-    embed.setDescription("DROPED THE SONG FROM QUEUE")
+    embed.setDescription("Membuang lagu dari anterian ke tong sampah")
     embed.setThumbnail(client.user.displayAvatarURL())
-    return message.channel.send(embed)
+    .setFooter('© Created by LarSpeed & @Muhammadbagus')
+return message.channel.send(embed)
   }
 };

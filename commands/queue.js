@@ -11,15 +11,18 @@ module.exports = {
 
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      embed.setAuthor("Masuk Voice Dulu BLOKK!");
-      return message.channel.send(embed);
+      embed.setAuthor("Masuk Voice Dulu BLOKK!")
+     .setFooter('© Created by LarSpeed & @Muhammadbagus')
+
+ return message.channel.send(embed);
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      embed.setAuthor("There is nothing in the queue");
-      return message.channel.send(embed);
+      embed.setAuthor("Tambah lagu nya dulu cok baru cek antrian")
+     .setFooter('© Created by LarSpeed & @Muhammadbagus')
+ return message.channel.send(embed);
     }
 
     embed.setDescription(
@@ -29,7 +32,7 @@ module.exports = {
       { split: true }
     );
     embed.setThumbnail(client.user.displayAvatarURL())
-    
+    .setFooter('© Created by LarSpeed & @Muhammadbagus')
     message.channel.send(embed);
   }
 };

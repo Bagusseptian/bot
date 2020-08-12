@@ -14,24 +14,27 @@ module.exports = {
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
       embed.setAuthor("Masuk Voice Dulu BLOKK!")
-      return message.channel.send(embed);
+      .setFooter('© Created by LarSpeed & @Muhammadbagus')
+return message.channel.send(embed);
     }
     
     
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      embed.setAuthor("There is nothing playing that i could pause")
-      return message.channel.send(embed);
+      embed.setAuthor("LAGU NYA GAK NYALA APA YANG DI PAUSE")
+     .setFooter('© Created by LarSpeed & @Muhammadbagus')
+ return message.channel.send(embed);
     }
     
     if(serverQueue && serverQueue.playing) {
       serverQueue.playing = false;
       serverQueue.connection.dispatcher.pause(true)
       
-      embed.setDescription("✅ | Paused The Current Playing Song")
+      embed.setDescription("✅ | JEDA LAGU AKTIF")
       embed.setThumbnail(client.user.displayAvatarURL())
-      return message.channel.send(embed)
+     .setFooter('© Created by LarSpeed & @Muhammadbagus')
+ return message.channel.send(embed)
   }  
   }
 }

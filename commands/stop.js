@@ -19,14 +19,16 @@ let embed = new MessageEmbed()
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
       embed.setAuthor("Masuk Voice Dulu BLOKK!")
-      return message.channel.send(embed);
+     .setFooter('© Created by LarSpeed & @Muhammadbagus')
+ return message.channel.send(embed);
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      embed.setAuthor("There is nothing playing that i could stop")
-      return message.channel.send(embed);
+      embed.setAuthor("LAGU NYA GK ADA BLOK||APA YANG MAU DI STOP!")
+      .setFooter('© Created by LarSpeed & @Muhammadbagus')
+return message.channel.send(embed);
     }
 
     serverQueue.songs = [];
